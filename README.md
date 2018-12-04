@@ -1,34 +1,34 @@
-# vfg-field-matrix
+# vfg-field-checkbox-list
 
-## Project setup
-```
-npm install
-```
+A checkbox-list field for vue-form-generator
 
-### Compiles and hot-reloads for development
+# Installation
+
 ```
-npm run serve
+npm install vfg-field-checkbox-list
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+# ES6
 
-### Run your tests
 ```
-npm run test
-```
+//
+// You can register a component manually
+//
+import { FieldCheckboxList } from 'vfg-field-checkbox-list'
 
-### Lints and fixes files
-```
-npm run lint
-```
+export default {
+  ...
+  components: {
+    'field-checkbox-list': FieldCheckboxList
+  },
+  ...
+};
 
-### Run your unit tests
-```
-npm run test:unit
-```
+//
+// or register the whole module with vue
+//
+import VfgFieldCheckboxList from 'vfg-field-checkbox-list'
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+// Install this library
+Vue.use(VfgFieldCheckboxList);
+```
