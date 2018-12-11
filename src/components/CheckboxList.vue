@@ -10,17 +10,19 @@
           type="checkbox"
           class="form-check-input"
           :value="item.value"
+          :checked="(value || []).includes(item.value)"
           @change="handleChange"
         />
-        {{item.name}}
+        {{ item.name }}
       </label>
-      <div class="invalid-feedback">Example invalid feedback text</div>
     </div>
   </div>
 </template>
 
 <script>
 import { abstractField, slugify } from 'vue-form-generator'
+
+const isArray = (obj) => Object.prototype.toString.call(obj) === '[object Array]'
 
 export default {
   mixins: [ abstractField ],
@@ -43,12 +45,13 @@ export default {
     },
 
     handleChange (event) {
+      let tempValue = isArray(this.value) ? this.value.concat() : []
       if (event.target.checked) {
-        this.value = [...this.value, event.target.value]
+        tempValue = [...this.value, event.target.value]
       } else {
-        this.value = this.value.filter(v => v !== event.target.value)
+        tempValue = this.value.filter(v => v !== event.target.value)
       }
-      this.value = [...new Set(this.value)]
+      this.value = [...new Set(tempValue)]
     }
   }
 }
