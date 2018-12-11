@@ -1,6 +1,6 @@
 {
   "name": "vfg-field-checkbox-list",
-  "version": "0.0.0-development",
+  "version": "0.0.1",
   "private": false,
   "main": "dist/field-checkbox-list.umd.js",
   "module": "dist/field-checkbox-list.esm.js",
