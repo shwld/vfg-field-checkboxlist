@@ -48,7 +48,8 @@ export default {
       } else {
         tempValue = tempValue.filter(v => v !== event.target.value)
       }
-      this.value = [...new Set(tempValue)]
+      const values = new Set(this.items.map(item => item.value))
+      this.value = [...new Set([...tempValue].filter(v => values.has(v)))]
     }
   }
 }
