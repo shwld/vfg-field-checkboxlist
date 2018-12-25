@@ -21,9 +21,7 @@
 
 <script>
 import { abstractField, slugify } from 'vue-form-generator'
-
 const isArray = (obj) => Object.prototype.toString.call(obj) === '[object Array]'
-
 export default {
   mixins: [ abstractField ],
   computed: {
@@ -43,13 +41,12 @@ export default {
       }
       return slugify(this.item.value)
     },
-
     handleChange (event) {
       let tempValue = isArray(this.value) ? this.value.concat() : []
       if (event.target.checked) {
-        tempValue = [...this.value, event.target.value]
+        tempValue = [...tempValue, event.target.value]
       } else {
-        tempValue = this.value.filter(v => v !== event.target.value)
+        tempValue = tempValue.filter(v => v !== event.target.value)
       }
       this.value = [...new Set(tempValue)]
     }
