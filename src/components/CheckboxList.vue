@@ -49,7 +49,7 @@ export default {
         tempValue = tempValue.filter(v => v !== event.target.value)
       }
       const values = new Set(this.items.map(item => item.value))
-      this.value = [...new Set([...tempValue].filter(v => values.has(v)))]
+      this.value = Array.from(new Set([...tempValue].filter(v => values.has(v))))
     }
   }
 }
